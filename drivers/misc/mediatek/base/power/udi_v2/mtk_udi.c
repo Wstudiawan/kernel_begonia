@@ -414,14 +414,14 @@ static ssize_t udi_jtag_clock_proc_write(struct file *file,
 	if (sscanf(buf, "%4s %u %u %512s %u %u %512s %u",
 			&recv_key_word[0], &recv_buf[0],
 			&recv_buf[1], recv_char[0], &recv_buf[3],
-			&recv_buf[2], recv_char[1], &recv_buf[4]) == 8) {
+			&recv_buf[2], recv_char[1], &recv_buf[4]) == 6) {
 		/* 6 parameter */
 		IR_pause_count = recv_buf[3];
 		DR_pause_count = recv_buf[4];
 	} else if (sscanf(buf, "%4s %u %u %512s %u %512s",
 			&recv_key_word[0], &recv_buf[0],
 			&recv_buf[1], recv_char[0],
-			&recv_buf[2], recv_char[1]) == 6) {
+			&recv_buf[2], recv_char[1]) == 4) {
 		/* 4 parameter */
 		IR_pause_count = 0;
 		DR_pause_count = 0;
